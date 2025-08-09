@@ -1,0 +1,7 @@
+langchain
+openai
+chromadb
+pymupdf
+tqdm
+python-dotenv
+requests
