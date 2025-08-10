@@ -1,7 +1,10 @@
-langchain
+langchain~=0.3.27
 openai
 chromadb
 pymupdf
 tqdm
-python-dotenv
-requests
+python-dotenv~=1.1.1
+requests~=2.32.4
+PyMuPDF
+fitz~=0.0.1.dev2
+langchain-openai~=0.3.29
