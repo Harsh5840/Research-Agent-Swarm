@@ -1,43 +1,21 @@
-import fitz  # PyMuPDF
-import os
+# packages/reader/pdf_reader.py
+
+from pathlib import Path
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-def read_pdf(file_path: str) -> str:
-    """
-    Extracts all text from a PDF file.
-
-    Args:
-        file_path (str): Path to the PDF file.
-
-    Returns:
-        str: Full text content from the PDF.
-    """
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"PDF not found: {file_path}")
-
-    text = ""
-    with fitz.open(file_path) as pdf:
-        for page in pdf:
-            text += page.get_text()
-
-    return text.strip()
-
-def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 200):
-    """
-    Splits text into overlapping chunks for embedding using LangChain's
-    RecursiveCharacterTextSplitter.
-
-    Args:
-        text (str): The text to chunk.
-        chunk_size (int): Number of characters per chunk.
-        overlap (int): Overlap between chunks.
-
-    Returns:
-        list[str]: List of text chunks.
-    """
+def load_and_split_pdf(file_path: str, chunk_size=1000, chunk_overlap=200):
+    """Loads a PDF and splits it into LangChain Documents."""
+    loader = PyPDFLoader(file_path)
+    pages = loader.load()
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
-        chunk_overlap=overlap,
-        length_function=len
+        chunk_overlap=chunk_overlap
     )
-    return splitter.split_text(text)
+    return splitter.split_documents(pages)
+
+def extract_text_from_pdf(file_path: str) -> str:
+    """Loads a PDF and returns its full text as one string."""
+    loader = PyPDFLoader(file_path)
+    pages = loader.load()
+    return "\n\n".join([page.page_content for page in pages])

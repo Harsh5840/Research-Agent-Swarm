@@ -8,3 +8,5 @@ requests~=2.32.4
 PyMuPDF
 fitz~=0.0.1.dev2
 langchain-openai~=0.3.29
+pathlib~=1.0.1
+langchain-community~=0.3.27

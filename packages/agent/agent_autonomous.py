@@ -21,7 +21,7 @@ def autonomous_research(goal: str, max_results: int = 5, persist_path: str = "da
     # Step 1: Search sources
     print(f"[SEARCH] Looking for papers on '{goal}'...")
     arxiv_results = search_arxiv(goal, max_results=max_results)
-    openalex_results = search_openalex(goal, max_results=max_results)
+    openalex_results = search_openalex(goal)
 
     papers = arxiv_results + openalex_results
     if not papers:
