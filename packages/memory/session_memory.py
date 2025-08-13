@@ -48,7 +48,9 @@ class SessionMemory:
         })
         self._save_memory()
 
-    def get_history(self, limit: int = None) -> List[Dict[str, Any]]:
+    from typing import Optional
+
+    def get_history(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
         """
         Retrieve conversation history.
 
