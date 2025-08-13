@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 
 load_dotenv()
 

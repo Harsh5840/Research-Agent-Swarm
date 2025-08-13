@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
-from langchain.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.schema import Document
 
 # Load environment variables
@@ -12,8 +12,8 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise ValueError("Missing OPENAI_API_KEY in .env")
 
-# Initialize embeddings model
-embeddings_model = OpenAIEmbeddings(model="text-embedding-ada-002")
+# Initialize embeddings model - using local HuggingFace model instead of OpenAI to avoid quota issues
+embeddings_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 def create_vector_store(docs: list[Document], persist_path: str = None):
     """
