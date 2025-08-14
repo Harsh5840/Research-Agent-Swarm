@@ -1,3 +1,91 @@
 {
-  "sessions": []
+  "sessions": [
+    {
+      "timestamp": "2025-08-13T20:32:08.287072",
+      "goal": "machine learning applications in healthcare",
+      "results": {
+        "summary": "1. Brief introduction of the research topic. \n2. Keywords and terms used throughout the paper. \n3. Summary of the main findings, methods, and conclusion. \n4. Conceptualization of the research topic. \n5. Three unique insightful ideas for future research. \n6. A brief summary of the research paper's overall impact on the field of healthcare. \n7. References to the article. \n\n---",
+        "insights": [
+          "1. Brief introduction of the research topic.",
+          "2. Keywords and terms used throughout the paper.",
+          "3. Summary of the main findings, methods, and conclusion.",
+          "4. Conceptualization of the research topic.",
+          "5. Three unique insightful ideas for future research.",
+          "6. A brief summary of the research paper's overall impact on the field of healthcare.",
+          "7. References to the article.",
+          ""
+        ],
+        "sources": [
+          {
+            "title": "Machine Learning Applications In Healthcare: The State Of Knowledge and\n  Future Directions",
+            "url": "http://arxiv.org/pdf/2307.14067v1.pdf",
+            "source": "arXiv",
+            "summary": "Detection of easily missed hidden patterns with fast processing power makes\nmachine learning (ML) indispensable to today's healthcare system. Though many\nML applications have already been discovered and many are still under\ninvestigation, only a few have been adopted by current healthcare systems. As a\nresult, there exists an enormous opportunity in healthcare system for ML but\ndistributed information, scarcity of properly arranged and easily explainable\ndocumentation in related sector are major impede which are making ML\napplications difficult to healthcare professionals. This study aimed to gather\nML applications in different areas of healthcare concisely and more effectively\nso that necessary information can be accessed immediately with relevant\nreferences. We divided our study into five major groups: community level work,\nrisk management/ preventive care, healthcare operation management, remote care,\nand early detection. Dividing these groups into subgroups, we provided relevant\nreferences with description in tabular form for quick access. Our objective is\nto inform people about ML applicability in healthcare industry, reduce the\nknowledge gap of clinicians about the ML applications and motivate healthcare\nprofessionals towards more machine learning based healthcare system.",
+            "content_type": "full_pdf",
+            "chunk_index": 0,
+            "total_chunks": 134
+          },
+          {
+            "title": "Machine Learning Applications In Healthcare: The State Of Knowledge and\n  Future Directions",
+            "url": "http://arxiv.org/pdf/2307.14067v1.pdf",
+            "source": "arXiv",
+            "summary": "Detection of easily missed hidden patterns with fast processing power makes\nmachine learning (ML) indispensable to today's healthcare system. Though many\nML applications have already been discovered and many are still under\ninvestigation, only a few have been adopted by current healthcare systems. As a\nresult, there exists an enormous opportunity in healthcare system for ML but\ndistributed information, scarcity of properly arranged and easily explainable\ndocumentation in related sector are major impede which are making ML\napplications difficult to healthcare professionals. This study aimed to gather\nML applications in different areas of healthcare concisely and more effectively\nso that necessary information can be accessed immediately with relevant\nreferences. We divided our study into five major groups: community level work,\nrisk management/ preventive care, healthcare operation management, remote care,\nand early detection. Dividing these groups into subgroups, we provided relevant\nreferences with description in tabular form for quick access. Our objective is\nto inform people about ML applicability in healthcare industry, reduce the\nknowledge gap of clinicians about the ML applications and motivate healthcare\nprofessionals towards more machine learning based healthcare system.",
+            "content_type": "full_pdf",
+            "chunk_index": 3,
+            "total_chunks": 134
+          },
+          {
+            "title": "Machine Learning Applications In Healthcare: The State Of Knowledge and\n  Future Directions",
+            "url": "http://arxiv.org/pdf/2307.14067v1.pdf",
+            "source": "arXiv",
+            "summary": "Detection of easily missed hidden patterns with fast processing power makes\nmachine learning (ML) indispensable to today's healthcare system. Though many\nML applications have already been discovered and many are still under\ninvestigation, only a few have been adopted by current healthcare systems. As a\nresult, there exists an enormous opportunity in healthcare system for ML but\ndistributed information, scarcity of properly arranged and easily explainable\ndocumentation in related sector are major impede which are making ML\napplications difficult to healthcare professionals. This study aimed to gather\nML applications in different areas of healthcare concisely and more effectively\nso that necessary information can be accessed immediately with relevant\nreferences. We divided our study into five major groups: community level work,\nrisk management/ preventive care, healthcare operation management, remote care,\nand early detection. Dividing these groups into subgroups, we provided relevant\nreferences with description in tabular form for quick access. Our objective is\nto inform people about ML applicability in healthcare industry, reduce the\nknowledge gap of clinicians about the ML applications and motivate healthcare\nprofessionals towards more machine learning based healthcare system.",
+            "content_type": "full_pdf",
+            "chunk_index": 1,
+            "total_chunks": 134
+          }
+        ],
+        "total_papers_found": 3,
+        "successfully_processed": 140
+      }
+    },
+    {
+      "timestamp": "2025-08-14T07:15:13.103522",
+      "goal": "AI in medicine",
+      "results": {
+        "summary": "4. \n5. \n\nSummary: The research papers analyze the intersection of artificial intelligence (AI) and medicine, highlighting the potential benefits and challenges of integrating AI into healthcare. The key findings are:\n\n1. Medicine is more than just treating illnesses; it involves maintaining life and addressing social, economic, and political factors that affect health outcomes.\n2. AI has the potential to revolutionize medicine by improving diagnosis accuracy, streamlining clinical workflows, and enabling personalized treatment plans. However, there are concerns about data privacy and security, as well as the need for proper regulation and oversight.\n3. The terms \"deep medicine\" (DM) and \"precision medicine\" (PR) reflect the focus on tailoring medical treatments to individual patients based on their unique genetic profiles and environmental factors.\n4. The concept of \"high-performance medicine\" (HPM) emphasizes the importance of optimizing clinical workflows, reducing waste, and improving patient outcomes through efficient use of resources.\n5. The integration of AI into healthcare raises questions about the role of human clinicians versus AI algorithms in making medical decisions. There is a need for further research on the ethical implications of this integration and how to ensure that AI is used responsibly and in a way that benefits patients.\nFuture Research Questions:\n1. How can we develop AI algorithms that are more transparent and explainable, so that clinicians can trust their recommendations?\n2. What are the most effective ways to integrate AI into healthcare systems, particularly in low-resource settings where access to technology may be limited?\n3. How can we balance the potential benefits of AI with concerns about data privacy and security, as well as the need for proper regulation and oversight?\n4. What are the long-term implications of integrating AI into healthcare, particularly in terms of workforce development and the future of medical education?\n5. How can we ensure that AI is used ethically and responsibly, particularly in the context of clinical decision-making and patient care?\"",
+        "insights": [],
+        "sources": [
+          {
+            "title": "AI and Medicine",
+            "url": "http://arxiv.org/pdf/2001.00641v1.pdf",
+            "source": "arXiv",
+            "summary": "Which part of medicine, if any, can and should be entrusted to AI, now or at\nsome moment in the future? That both medicine and AI will continue to change\ngoes without saying.",
+            "content_type": "full_pdf",
+            "chunk_index": 1,
+            "total_chunks": 164
+          },
+          {
+            "title": "AI and Medicine",
+            "url": "http://arxiv.org/pdf/2001.00641v1.pdf",
+            "source": "arXiv",
+            "summary": "Which part of medicine, if any, can and should be entrusted to AI, now or at\nsome moment in the future? That both medicine and AI will continue to change\ngoes without saying.",
+            "content_type": "full_pdf",
+            "chunk_index": 2,
+            "total_chunks": 164
+          },
+          {
+            "title": "AI and Medicine",
+            "url": "http://arxiv.org/pdf/2001.00641v1.pdf",
+            "source": "arXiv",
+            "summary": "Which part of medicine, if any, can and should be entrusted to AI, now or at\nsome moment in the future? That both medicine and AI will continue to change\ngoes without saying.",
+            "content_type": "full_pdf",
+            "chunk_index": 8,
+            "total_chunks": 164
+          }
+        ],
+        "total_papers_found": 10,
+        "successfully_processed": 164
+      }
+    }
+  ]
 }

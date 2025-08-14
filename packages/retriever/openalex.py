@@ -18,10 +18,10 @@ def search_openalex(query: str, per_page: int = 5):
         per_page (int): Number of results to fetch (default=5)
 
     Returns:
-        list[dict]: List of paper metadata {title, summary, link, source}
+        list[dict]: List of paper metadata {title, summary, link, source, pdf_url, authors, year}
     """
     # URL encode the search query
-    url = f"{OPENALEX_API_URL}/works?search={quote(query)}&per-page={per_page}"
+    url = f"{OPENALEX_API_URL}/works?search={quote(query)}&per-page={per_page}&select=id,display_name,abstract_inverted_index,publication_year,authorships,open_access,locations"
 
     # Send HTTP GET request
     response = requests.get(url, timeout=10)
@@ -44,11 +44,34 @@ def search_openalex(query: str, per_page: int = 5):
         else:
             abstract_text = ""
 
+        # Try to find PDF URL from locations
+        pdf_url = None
+        locations = work.get("locations", [])
+        for location in locations:
+            if location.get("type") == "pdf":
+                pdf_url = location.get("pdf_url")
+                break
+
+        # Get authors
+        authors = []
+        authorships = work.get("authorships", [])
+        for authorship in authorships:
+            author = authorship.get("author", {})
+            if author.get("display_name"):
+                authors.append(author.get("display_name"))
+
+        # Get publication year
+        year = work.get("publication_year", "Unknown")
+
         results.append({
             "title": work.get("display_name", "").strip(),
             "summary": abstract_text.strip(),
             "link": work.get("id", "").strip(),
-            "source": "OpenAlex"
+            "pdf_url": pdf_url,
+            "source": "OpenAlex",
+            "authors": authors,
+            "year": year,
+            "open_access": work.get("open_access", {}).get("is_oa", False)
         })
 
     return results

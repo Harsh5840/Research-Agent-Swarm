@@ -19,7 +19,34 @@ except ImportError as e:
     sys.exit(1)
 
 def main():
-    parser = argparse.ArgumentParser(description="Autonomous AI Research Assistant")
+    """Main CLI entry point."""
+    parser = argparse.ArgumentParser(
+        description="🚀 Autonomous Research Agent CLI",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # Basic research with default settings
+  python main.py "What are the latest advances in transformer models?"
+  
+  # Research with custom parameters
+  python main.py "Machine learning applications in healthcare" --max_results 10 --max_docs 100 --timeout 30
+  
+  # Clean up checkpoint files from failed runs
+  python main.py --cleanup-checkpoints
+  
+  # List previous research sessions
+  python main.py --list-sessions
+  
+  # Show the most recent session
+  python main.py --show-last
+
+Tips:
+  • Use --max_docs to limit processing for faster results
+  • Use --timeout to prevent hanging on large datasets
+  • Use --cleanup-checkpoints if you encounter errors
+  • The system automatically saves progress and can resume from failures
+        """
+    )
     parser.add_argument(
         "goal",
         nargs="?",  # Make goal optional
@@ -29,7 +56,7 @@ def main():
     parser.add_argument(
         "--max_results",
         type=int,
-        default=5,
+        default=20,  # Increased from 5 to 20
         help="Max number of papers to retrieve from each source"
     )
     parser.add_argument(
@@ -37,6 +64,23 @@ def main():
         type=str,
         default="data/vector_store",
         help="Path to save the vector store"
+    )
+    parser.add_argument(
+        "--max_docs",
+        type=int,
+        default=500,  # Increased from 200 to 500
+        help="Maximum number of documents to process for vector store (default: 500)"
+    )
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=120,  # Increased from 60 to 120
+        help="Timeout in minutes for vector store creation (default: 120)"
+    )
+    parser.add_argument(
+        "--cleanup-checkpoints",
+        action="store_true",
+        help="Clean up checkpoint files from failed runs"
     )
     parser.add_argument(
         "--list-sessions",
@@ -76,6 +120,12 @@ def main():
         for idx, insight in enumerate(last_session['results']['insights'], start=1):
             print(f"{idx}. {insight}")
         return
+    
+    if args.cleanup_checkpoints:
+        from packages.rag.vector_store import cleanup_checkpoints
+        cleanup_checkpoints(args.persist_path)
+        print("✅ Checkpoint cleanup completed")
+        return
 
     # Check if goal is provided for research
     if not args.goal:
@@ -89,25 +139,23 @@ def main():
     env_file = project_root / ".env"
     if not env_file.exists():
         print("⚠️  Warning: .env file not found!")
-        print("   Please create a .env file with your OPENAI_API_KEY")
-        print("   See env.example for reference")
+        print("   Note: OpenAI API key is no longer required for local operation")
+        print("   See env.example for reference if you want to use OpenAI features")
         return
 
-    # Check if OPENAI_API_KEY is set
+    # Load environment variables (optional now)
     from dotenv import load_dotenv
     load_dotenv(env_file)
-    if not os.getenv("OPENAI_API_KEY"):
-        print("❌ Error: OPENAI_API_KEY not found in .env file")
-        print("   Please add your OpenAI API key to the .env file")
-        return
-
+    
     print(f"🚀 Starting research on: {args.goal}")
     
     try:
         summary_data = autonomous_research(
             goal=args.goal,
             max_results=args.max_results,
-            persist_path=args.persist_path
+            persist_path=args.persist_path,
+            max_docs_to_process=args.max_docs,
+            timeout_minutes=args.timeout
         )
 
         if summary_data:

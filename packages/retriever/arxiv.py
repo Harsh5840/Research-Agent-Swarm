@@ -19,7 +19,7 @@ def search_arxiv(query: str, max_results: int = 5):
         max_results (int): Number of results to fetch (default=5)
 
     Returns:
-        list[dict]: List of paper metadata {title, summary, link, source}
+        list[dict]: List of paper metadata {title, summary, link, pdf_url, source}
     """
     # URL encode the search query
     url = f"{ARXIV_API_URL}?search_query={quote(query)}&start=0&max_results={max_results}"
@@ -40,12 +40,20 @@ def search_arxiv(query: str, max_results: int = 5):
 
         title = title_elem.text.strip() if title_elem is not None and title_elem.text else ""
         summary = summary_elem.text.strip() if summary_elem is not None and summary_elem.text else ""
-        link = link_elem.text.strip() if link_elem is not None and link_elem.text else ""
+        abstract_url = link_elem.text.strip() if link_elem is not None and link_elem.text else ""
+        
+        # Convert abstract URL to PDF URL
+        pdf_url = ""
+        if abstract_url and "arxiv.org/abs/" in abstract_url:
+            pdf_url = abstract_url.replace("/abs/", "/pdf/") + ".pdf"
+        elif abstract_url and "arxiv.org/abs" in abstract_url:
+            pdf_url = abstract_url.replace("/abs", "/pdf") + ".pdf"
 
         results.append({
             "title": title,
             "summary": summary,
-            "link": link,
+            "link": abstract_url,  # Keep original abstract URL for reference
+            "pdf_url": pdf_url,    # Add PDF URL for direct download
             "source": "arXiv"
         })
 
